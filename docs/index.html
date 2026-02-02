@@ -25,28 +25,17 @@
     <label>表类型
       <select id="tableSelect"></select>
     </label>
-    <label>月份
-      <select id="monthSelect"></select>
-    </label>
     <label>城市
-      <input id="cityInput" placeholder="输入城市名（可空）" />
+      <input id="cityInput" placeholder="输入城市名（例如：杭州）" />
     </label>
     <button id="resetBtn">重置</button>
   </div>
 
-  <table id="dataTable">
-    <thead>
-      <tr>
-        <th class="city">城市</th>
-        <th>环比</th>
-        <th>同比</th>
-        <th>1-12月平均</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+  <canvas id="chart" height="120"></canvas>
+  <div class="muted">显示范围：2018-03 至 2025-12</div>
 
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script>
     const tableLabels = {
       "new_home": "新建商品住宅销售价格指数",
@@ -63,6 +52,7 @@
       return new Promise((resolve) => {
         Papa.parse(text, {
           header: true,
+          skipEmptyLines: true,
           complete: (results) => resolve(results.data),
         });
       });
@@ -72,35 +62,59 @@
       return Array.from(new Set(values)).sort();
     }
 
-    function renderTable(rows) {
-      const tbody = document.querySelector('#dataTable tbody');
-      tbody.innerHTML = '';
-      rows.forEach(r => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td class="city">${r.city}</td>
-          <td>${r['环比'] ?? ''}</td>
-          <td>${r['同比'] ?? ''}</td>
-          <td>${r['1-12月平均'] ?? ''}</td>
-        `;
-        tbody.appendChild(tr);
+    function normalizeRow(r) {
+      const city = r.city || r['城市'] || r['城市_1'] || '';
+      return { ...r, city };
+    }
+
+    function inRange(month) {
+      return month >= '2018-03' && month <= '2025-12';
+    }
+
+    function buildSeries(rows) {
+      const keys = Object.keys(rows[0] || {}).filter(k => !['month','table','city','城市','城市_1','城市_2'].includes(k));
+      const labels = unique(rows.map(r => r.month)).sort();
+      const datasets = keys.map((k, idx) => ({
+        label: k,
+        data: labels.map(m => {
+          const row = rows.find(r => r.month === m);
+          const v = row ? row[k] : '';
+          return v === '' ? null : Number(v);
+        }),
+        borderWidth: 2,
+        tension: 0.2,
+      }));
+      return { labels, datasets };
+    }
+
+    let chart;
+    function renderChart(rows) {
+      const ctx = document.getElementById('chart').getContext('2d');
+      const { labels, datasets } = buildSeries(rows);
+      if (chart) chart.destroy();
+      chart = new Chart(ctx, {
+        type: 'line',
+        data: { labels, datasets },
+        options: {
+          responsive: true,
+          plugins: { legend: { position: 'bottom' } },
+          scales: { x: { ticks: { maxRotation: 0 } } },
+        },
       });
     }
 
     function applyFilter(data) {
       const table = document.getElementById('tableSelect').value;
-      const month = document.getElementById('monthSelect').value;
       const city = document.getElementById('cityInput').value.trim();
-      let rows = data.filter(d => d.table === table);
-      if (month) rows = rows.filter(d => d.month === month);
-      if (city) rows = rows.filter(d => d.city.includes(city));
-      renderTable(rows);
+      let rows = data.filter(d => d.table === table).map(normalizeRow);
+      rows = rows.filter(r => r.city && inRange(r.month));
+      if (city) rows = rows.filter(r => r.city.includes(city));
+      rows = rows.sort((a,b) => a.month.localeCompare(b.month));
+      renderChart(rows);
     }
 
     loadData().then(data => {
       const tableSelect = document.getElementById('tableSelect');
-      const monthSelect = document.getElementById('monthSelect');
-
       const tables = unique(data.map(d => d.table));
       tables.forEach(t => {
         const opt = document.createElement('option');
@@ -109,26 +123,12 @@
         tableSelect.appendChild(opt);
       });
 
-      const months = unique(data.map(d => d.month)).reverse();
-      const empty = document.createElement('option');
-      empty.value = '';
-      empty.textContent = '全部';
-      monthSelect.appendChild(empty);
-      months.forEach(m => {
-        const opt = document.createElement('option');
-        opt.value = m;
-        opt.textContent = m;
-        monthSelect.appendChild(opt);
-      });
-
       document.getElementById('resetBtn').addEventListener('click', () => {
-        monthSelect.value = '';
         document.getElementById('cityInput').value = '';
         applyFilter(data);
       });
 
       document.getElementById('tableSelect').addEventListener('change', () => applyFilter(data));
-      document.getElementById('monthSelect').addEventListener('change', () => applyFilter(data));
       document.getElementById('cityInput').addEventListener('input', () => applyFilter(data));
 
       applyFilter(data);
