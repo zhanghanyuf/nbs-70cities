@@ -12,7 +12,15 @@ import pandas as pd
 
 API_URL = "https://api.so-gov.cn/query/s"
 SITE_CODE = "bm36000002"
-QUERY = "70个大中城市商品住宅销售价格变动"
+QUERIES = [
+    "70个大中城市商品住宅销售价格变动",
+    "70个大中城市住宅销售价格指数",
+    "70个大中城市新建商品住宅销售价格指数",
+    "70个大中城市二手住宅销售价格指数",
+    "70个大中城市商品住宅销售价格变动情况",
+    "70个大中城市住宅销售价格变动",
+    "70个大中城市房价指数",
+]
 
 TABLE_NAMES = [
     "new_home",
@@ -63,30 +71,36 @@ def parse_month_from_title(title):
 
 
 def fetch_search_results():
-    page = 1
-    page_size = 50
     results = []
-    while True:
-        payload = {
-            "qt": QUERY,
-            "siteCode": SITE_CODE,
-            "page": page,
-            "pageSize": page_size,
-        }
-        data = post_json(API_URL, payload)
-        docs = data.get("resultDocs") or []
-        if not docs:
-            break
-        for doc in docs:
-            d = doc.get("data", {})
-            title = clean_html(d.get("title"))
-            url = d.get("url")
-            doc_date = d.get("docDate")
-            if title and url:
-                results.append({"title": title, "url": url, "docDate": doc_date})
-        if len(docs) < page_size:
-            break
-        page += 1
+    seen = set()
+    for q in QUERIES:
+        page = 1
+        page_size = 20
+        while True:
+            payload = {
+                "qt": q,
+                "siteCode": SITE_CODE,
+                "page": page,
+                "pageSize": page_size,
+            }
+            data = post_json(API_URL, payload)
+            docs = data.get("resultDocs") or []
+            print(f"Search [{q}] page {page}: {len(docs)}")
+            if not docs:
+                break
+            new_count = 0
+            for doc in docs:
+                d = doc.get("data", {})
+                title = clean_html(d.get("title"))
+                url = d.get("url")
+                doc_date = d.get("docDate")
+                if title and url and url not in seen:
+                    results.append({"title": title, "url": url, "docDate": doc_date})
+                    seen.add(url)
+                    new_count += 1
+            if new_count == 0:
+                break
+            page += 1
     return results
 
 
@@ -130,9 +144,29 @@ def normalize_table(df):
         else:
             merged = left
 
-    # Clean city names
-    merged["城市"] = merged["城市"].astype(str).str.replace(" ", "", regex=False).str.strip()
-    merged = merged[merged["城市"].notna() & (merged["城市"] != "")]
+    # Ensure unique columns
+    cols = list(merged.columns)
+    if len(set(cols)) != len(cols):
+        new_cols = []
+        seen = {}
+        for c in cols:
+            if c in seen:
+                seen[c] += 1
+                new_cols.append(f"{c}_{seen[c]}")
+            else:
+                seen[c] = 0
+                new_cols.append(c)
+        merged.columns = new_cols
+
+    # Normalize city column (handle duplicated names)
+    city_cols = [c for c in merged.columns if c.startswith("城市")]
+    if not city_cols:
+        raise KeyError("城市")
+    city_col = city_cols[0]
+    merged[city_col] = merged[city_col].astype(str).str.replace(" ", "", regex=False).str.strip()
+    merged = merged[merged[city_col].notna() & (merged[city_col] != "")]
+    if city_col != "城市":
+        merged.rename(columns={city_col: "城市"}, inplace=True)
     return merged
 
 
@@ -212,8 +246,19 @@ def main():
     processed = index.get("processed", {})
 
     results = fetch_search_results()
-    # Filter relevant titles
-    targets = [r for r in results if "70个大中城市" in r["title"] and "商品住宅销售价格变动" in r["title"]]
+    # Filter relevant titles + domain
+    targets = [r for r in results if "70个大中城市" in r["title"] and "住宅销售价格" in r["title"]]
+    targets = [r for r in targets if "stats.gov.cn" in r["url"]]
+    # Limit to 2016-01 through 2025-12
+    filtered = []
+    for r in targets:
+        m = parse_month_from_title(r["title"])
+        if not m:
+            continue
+        y = int(m.split("-")[0])
+        if 2016 <= y <= 2025:
+            filtered.append(r)
+    targets = filtered
     failures = []
 
     for item in targets:

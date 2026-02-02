@@ -99,6 +99,506 @@
       "title": "2020年11月份70个大中城市商品住宅销售价格变动情况",
       "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202012/t20201214_1808995.html",
       "docDate": "2020-12-14"
+    },
+    "2020-06": {
+      "title": "2020年6月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202007/t20200716_1776281.html",
+      "docDate": "2020-07-16"
+    },
+    "2020-03": {
+      "title": "2020年3月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202004/t20200416_1767784.html",
+      "docDate": "2020-04-16"
+    },
+    "2020-01": {
+      "title": "2020年1月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202002/t20200217_1767760.html",
+      "docDate": "2020-02-17"
+    },
+    "2019-10": {
+      "title": "2019年10月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/201911/t20191115_1767548.html",
+      "docDate": "2019-11-15"
+    },
+    "2019-06": {
+      "title": "2019年6月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/201907/t20190715_1768069.html",
+      "docDate": "2019-07-15"
+    },
+    "2023-06": {
+      "title": "2023年6月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202307/t20230715_1941249.html",
+      "docDate": "2023-07-15"
+    },
+    "2023-02": {
+      "title": "2023年2月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202303/t20230316_1937306.html",
+      "docDate": "2023-03-16"
+    },
+    "2022-09": {
+      "title": "2022年9月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202210/t20221024_1889591.html",
+      "docDate": "2022-10-24"
+    },
+    "2022-05": {
+      "title": "2022年5月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202206/t20220616_1858370.html",
+      "docDate": "2022-06-16"
+    },
+    "2021-09": {
+      "title": "2021年9月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202110/t20211020_1823636.html",
+      "docDate": "2021-10-20"
+    },
+    "2021-08": {
+      "title": "2021年8月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202109/t20210915_1822090.html",
+      "docDate": "2021-09-15"
+    },
+    "2021-07": {
+      "title": "2021年7月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202108/t20210816_1820576.html",
+      "docDate": "2021-08-16"
+    },
+    "2021-05": {
+      "title": "2021年5月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202106/t20210617_1818515.html",
+      "docDate": "2021-06-17"
+    },
+    "2021-04": {
+      "title": "2021年4月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202105/t20210517_1817539.html",
+      "docDate": "2021-05-17"
+    },
+    "2020-09": {
+      "title": "2020年9月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202010/t20201020_1794971.html",
+      "docDate": "2020-10-20"
+    },
+    "2020-05": {
+      "title": "2020年5月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202006/t20200615_1767734.html",
+      "docDate": "2020-06-15"
+    },
+    "2019-12": {
+      "title": "2019年12月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202001/t20200116_1767739.html",
+      "docDate": "2020-01-16"
+    },
+    "2019-09": {
+      "title": "2019年9月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/201910/t20191021_1768131.html",
+      "docDate": "2019-10-21"
+    },
+    "2019-08": {
+      "title": "2019年8月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/201909/t20190917_1768112.html",
+      "docDate": "2019-09-17"
+    },
+    "2023-03": {
+      "title": "2023年3月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202304/t20230415_1938662.html",
+      "docDate": "2023-04-15"
+    },
+    "2022-12": {
+      "title": "2022年12月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202301/t20230116_1891688.html",
+      "docDate": "2023-01-16"
+    },
+    "2022-10": {
+      "title": "2022年10月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202211/t20221116_1890340.html",
+      "docDate": "2022-11-16"
+    },
+    "2022-08": {
+      "title": "2022年8月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202209/t20220916_1888342.html",
+      "docDate": "2022-09-16"
+    },
+    "2021-11": {
+      "title": "2021年11月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202112/t20211215_1825292.html",
+      "docDate": "2021-12-15"
+    },
+    "2021-10": {
+      "title": "2021年10月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202111/t20211115_1824503.html",
+      "docDate": "2021-11-15"
+    },
+    "2021-02": {
+      "title": "2021年2月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202103/t20210315_1814760.html",
+      "docDate": "2021-03-15"
+    },
+    "2021-01": {
+      "title": "2021年1月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202102/t20210223_1813881.html",
+      "docDate": "2021-02-23"
+    },
+    "2020-12": {
+      "title": "2020年12月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202101/t20210115_1812378.html",
+      "docDate": "2021-01-15"
+    },
+    "2020-08": {
+      "title": "2020年8月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202009/t20200914_1789252.html",
+      "docDate": "2020-09-14"
+    },
+    "2020-07": {
+      "title": "2020年7月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202008/t20200814_1783284.html",
+      "docDate": "2020-08-14"
+    },
+    "2020-04": {
+      "title": "2020年4月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202005/t20200518_1767721.html",
+      "docDate": "2020-05-18"
+    },
+    "2019-11": {
+      "title": "2019年11月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/201912/t20191216_1767574.html",
+      "docDate": "2019-12-16"
+    },
+    "2019-07": {
+      "title": "2019年7月份70个大中城市商品住宅销售价格变动情况",
+      "url": "http://www.stats.gov.cn/xxgk/sjfb/zxfb2020/201908/t20190815_1768089.html",
+      "docDate": "2019-08-15"
+    },
+    "2025-04": {
+      "title": "2025年4月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202505/t20250519_1959852.html",
+      "docDate": "2025-05-19"
+    },
+    "2025-02": {
+      "title": "2025年2月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202503/t20250317_1959009.html",
+      "docDate": "2025-03-17"
+    },
+    "2024-05": {
+      "title": "2024年5月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202406/t20240617_1954705.html",
+      "docDate": "2024-06-17"
+    },
+    "2024-04": {
+      "title": "2024年4月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202405/t20240517_1950386.html",
+      "docDate": "2024-05-17"
+    },
+    "2024-03": {
+      "title": "2024年3月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202404/t20240416_1948557.html",
+      "docDate": "2024-04-16"
+    },
+    "2024-02": {
+      "title": "2024年2月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202403/t20240322_1948125.html",
+      "docDate": "2024-03-15"
+    },
+    "2023-11": {
+      "title": "2023年11月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202312/t20231215_1945563.html",
+      "docDate": "2023-12-15"
+    },
+    "2023-09": {
+      "title": "2023年9月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202310/t20231019_1943727.html",
+      "docDate": "2023-10-19"
+    },
+    "2023-07": {
+      "title": "2023年7月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202308/t20230816_1942031.html",
+      "docDate": "2023-08-16"
+    },
+    "2025-06": {
+      "title": "2025年6月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202507/t20250715_1960403.html",
+      "docDate": "2025-07-15"
+    },
+    "2025-05": {
+      "title": "2025年5月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202506/t20250616_1960163.html",
+      "docDate": "2025-06-16"
+    },
+    "2025-03": {
+      "title": "2025年3月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202504/t20250416_1959311.html",
+      "docDate": "2025-04-16"
+    },
+    "2024-11": {
+      "title": "2024年11月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202412/t20241216_1957755.html",
+      "docDate": "2024-12-16"
+    },
+    "2024-09": {
+      "title": "2024年9月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202410/t20241018_1957035.html",
+      "docDate": "2024-10-18"
+    },
+    "2024-06": {
+      "title": "2024年6月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202407/t20240715_1955602.html",
+      "docDate": "2024-07-15"
+    },
+    "2023-12": {
+      "title": "2023年12月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202401/t20240117_1946602.html",
+      "docDate": "2024-01-17"
+    },
+    "2023-08": {
+      "title": "2023年8月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202309/t20230915_1942841.html",
+      "docDate": "2023-09-15"
+    },
+    "2024-12": {
+      "title": "2024年12月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202501/t20250117_1958323.html",
+      "docDate": "2025-01-17"
+    },
+    "2024-10": {
+      "title": "2024年10月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202411/t20241115_1957419.html",
+      "docDate": "2024-11-15"
+    },
+    "2024-08": {
+      "title": "2024年8月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202409/t20240914_1956479.html",
+      "docDate": "2024-09-14"
+    },
+    "2024-07": {
+      "title": "2024年7月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202408/t20240815_1955978.html",
+      "docDate": "2024-08-15"
+    },
+    "2023-10": {
+      "title": "2023年10月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202311/t20231116_1944603.html",
+      "docDate": "2023-11-16"
+    },
+    "2018-11": {
+      "title": "2018年11月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900181.html",
+      "docDate": "2018-12-15"
+    },
+    "2018-10": {
+      "title": "2018年10月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900151.html",
+      "docDate": "2018-11-15"
+    },
+    "2018-09": {
+      "title": "2018年9月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900113.html",
+      "docDate": "2018-10-20"
+    },
+    "2018-03": {
+      "title": "2018年3月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899909.html",
+      "docDate": "2018-04-18"
+    },
+    "2018-12": {
+      "title": "2018年12月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900198.html",
+      "docDate": "2019-01-16"
+    },
+    "2018-08": {
+      "title": "2018年8月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900083.html",
+      "docDate": "2018-09-15"
+    },
+    "2018-07": {
+      "title": "2018年7月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900036.html",
+      "docDate": "2018-08-15"
+    },
+    "2018-06": {
+      "title": "2018年6月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899999.html",
+      "docDate": "2018-07-17"
+    },
+    "2018-05": {
+      "title": "2018年5月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899970.html",
+      "docDate": "2018-06-15"
+    },
+    "2020-02": {
+      "title": "2020年2月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900652.html",
+      "docDate": "2020-03-16"
+    },
+    "2019-05": {
+      "title": "2019年5月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900348.html",
+      "docDate": "2019-06-18"
+    },
+    "2019-03": {
+      "title": "2019年3月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900274.html",
+      "docDate": "2019-04-16"
+    },
+    "2018-04": {
+      "title": "2018年4月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899946.html",
+      "docDate": "2018-05-16"
+    },
+    "2019-01": {
+      "title": "2019年1月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900238.html",
+      "docDate": "2019-02-22"
+    },
+    "2025-01": {
+      "title": "2025年1月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202502/t20250219_1958761.html",
+      "docDate": "2025-02-19"
+    },
+    "2024-01": {
+      "title": "2024年1月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202402/t20240223_1947808.html",
+      "docDate": "2024-02-23"
+    },
+    "2018-01": {
+      "title": "2018年1月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899851.html",
+      "docDate": "2018-02-24"
+    },
+    "2018-02": {
+      "title": "2018年2月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899873.html",
+      "docDate": "2018-03-19"
+    },
+    "2020-10": {
+      "title": "2020年10月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900906.html",
+      "docDate": "2020-11-16"
+    },
+    "2019-04": {
+      "title": "2019年4月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900325.html",
+      "docDate": "2019-05-16"
+    },
+    "2019-02": {
+      "title": "2019年2月份70个大中城市商品住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1900261.html",
+      "docDate": "2019-03-15"
+    },
+    "2017-12": {
+      "title": "2017年12月份70个大中城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899812.html",
+      "docDate": "2018-01-18"
+    },
+    "2017-11": {
+      "title": "2017年11月份70个大中城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899785.html",
+      "docDate": "2017-12-18"
+    },
+    "2017-06": {
+      "title": "2017年6月份70个大中城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899586.html",
+      "docDate": "2017-07-18"
+    },
+    "2017-01": {
+      "title": "2017年1月份70个大中城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899424.html",
+      "docDate": "2017-02-22"
+    },
+    "2016-05": {
+      "title": "2016年5月份70个大中城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899167.html",
+      "docDate": "2016-06-18"
+    },
+    "2017-05": {
+      "title": "2017年5月份70个大中城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899553.html",
+      "docDate": "2017-06-19"
+    },
+    "2017-04": {
+      "title": "2017年4月份70个大中城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899518.html",
+      "docDate": "2017-05-18"
+    },
+    "2017-03": {
+      "title": "2017年3月份70个大中城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899479.html",
+      "docDate": "2017-04-18"
+    },
+    "2016-08": {
+      "title": "2016年8月份70个大中城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899267.html",
+      "docDate": "2016-09-19"
+    },
+    "2016-04": {
+      "title": "2016年4月份70个大中城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899136.html",
+      "docDate": "2016-05-18"
+    },
+    "2016-03": {
+      "title": "2016年3月份70个大中城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899096.html",
+      "docDate": "2016-04-18"
+    },
+    "2016-02": {
+      "title": "2016年2月份70个大中城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899073.html",
+      "docDate": "2016-03-18"
+    },
+    "2016-01": {
+      "title": "2016年1月份70个大中城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899039.html",
+      "docDate": "2016-02-26"
+    },
+    "2016-07": {
+      "title": "2016年7月份70个大中城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899232.html",
+      "docDate": "2016-08-18"
+    },
+    "2016-06": {
+      "title": "2016年6月份70个大中城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899197.html",
+      "docDate": "2016-07-18"
+    },
+    "2016-10": {
+      "title": "2016年10月份70个大中城市及10月下半月一线和热点二线城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899340.html",
+      "docDate": "2016-11-18"
+    },
+    "2016-11": {
+      "title": "2016年11月份70个大中城市及11月下半月一线和热点二线城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899368.html",
+      "docDate": "2016-12-19"
+    },
+    "2016-09": {
+      "title": "2016年9月份70个大中城市及10月上半月一线和热点二线城市住宅销售价格变动情况",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899303.html",
+      "docDate": "2016-10-21"
+    },
+    "2016-12": {
+      "title": "2016-12 70城住宅销售价格变动",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899393.html",
+      "docDate": null
+    },
+    "2017-02": {
+      "title": "2017-02 70城住宅销售价格变动",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899453.html",
+      "docDate": null
+    },
+    "2017-07": {
+      "title": "2017-07 70城住宅销售价格变动",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899625.html",
+      "docDate": null
+    },
+    "2017-08": {
+      "title": "2017-08 70城住宅销售价格变动",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899659.html",
+      "docDate": null
+    },
+    "2017-09": {
+      "title": "2017-09 70城住宅销售价格变动",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899703.html",
+      "docDate": null
+    },
+    "2017-10": {
+      "title": "2017-10 70城住宅销售价格变动",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899740.html",
+      "docDate": null
     }
   }
 }
