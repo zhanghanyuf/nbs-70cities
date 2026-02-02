@@ -1,0 +1,22 @@
+[
+  {
+    "month": "2025-01",
+    "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202502/t20250219_1958761.html",
+    "error": "'DataFrame' object has no attribute 'str'"
+  },
+  {
+    "month": "2024-01",
+    "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202402/t20240223_1947808.html",
+    "error": "'DataFrame' object has no attribute 'str'"
+  },
+  {
+    "month": "2018-01",
+    "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899851.html",
+    "error": "Reindexing only valid with uniquely valued Index objects"
+  },
+  {
+    "month": "2018-02",
+    "url": "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1899873.html",
+    "error": "Reindexing only valid with uniquely valued Index objects"
+  }
+]

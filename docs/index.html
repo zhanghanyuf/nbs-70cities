@@ -46,6 +46,7 @@
     <tbody></tbody>
   </table>
 
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script>
     const tableLabels = {
       "new_home": "新建商品住宅销售价格指数",
@@ -57,9 +58,14 @@
     };
 
     async function loadData() {
-      const res = await fetch('./data.json');
-      const data = await res.json();
-      return data;
+      const res = await fetch('./data.csv');
+      const text = await res.text();
+      return new Promise((resolve) => {
+        Papa.parse(text, {
+          header: true,
+          complete: (results) => resolve(results.data),
+        });
+      });
     }
 
     function unique(values) {
