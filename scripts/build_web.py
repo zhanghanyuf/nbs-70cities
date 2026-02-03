@@ -90,10 +90,29 @@ def build_chart_csv():
         return
 
     chart = pd.concat(parts, ignore_index=True)
-    # merge category tables
     chart = chart.drop_duplicates(subset=["month", "city", "house_type", "segment", "metric"], keep="last")
     chart.to_csv(os.path.join(DOCS, "chart.csv"), index=False)
     print("docs/chart.csv updated")
+
+    # build relative price series from 环比 (base=100)
+    price = chart[chart["metric"] == "环比"].copy()
+    price["value"] = pd.to_numeric(price["value"], errors="coerce")
+    price = price.dropna(subset=["value"])
+    price = price.sort_values(["city", "house_type", "segment", "month"])
+    out = []
+    for (city, house, seg), grp in price.groupby(["city", "house_type", "segment"]):
+        idx = 100.0
+        for _, row in grp.iterrows():
+            idx = idx * (row["value"] / 100.0)
+            out.append({
+                "month": row["month"],
+                "city": city,
+                "house_type": house,
+                "segment": seg,
+                "value": round(idx, 4),
+            })
+    pd.DataFrame(out).to_csv(os.path.join(DOCS, "price.csv"), index=False)
+    print("docs/price.csv updated")
 
 
 if __name__ == "__main__":
