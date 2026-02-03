@@ -22,11 +22,20 @@
   <div class="muted">数据来源：国家统计局</div>
 
   <div class="controls">
-    <label>表类型
-      <select id="tableSelect"></select>
-    </label>
     <label>城市
       <input id="cityInput" placeholder="输入城市名（例如：杭州）" />
+    </label>
+    <label>房屋类型
+      <select id="houseSelect">
+        <option value="新房">新房</option>
+        <option value="二手房">二手房</option>
+      </select>
+    </label>
+    <label>维度
+      <select id="segmentMode">
+        <option value="整体">整体</option>
+        <option value="面积段">面积段</option>
+      </select>
     </label>
     <button id="resetBtn">重置</button>
   </div>
@@ -37,17 +46,8 @@
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script>
-    const tableLabels = {
-      "new_home": "新建商品住宅销售价格指数",
-      "second_hand": "二手住宅销售价格指数",
-      "new_home_category_1": "新建商品住宅分类指数（一）",
-      "new_home_category_2": "新建商品住宅分类指数（二）",
-      "second_hand_category_1": "二手住宅分类指数（一）",
-      "second_hand_category_2": "二手住宅分类指数（二）",
-    };
-
     async function loadData() {
-      const res = await fetch('./data.csv');
+      const res = await fetch('./chart.csv');
       const text = await res.text();
       return new Promise((resolve) => {
         Papa.parse(text, {
@@ -58,39 +58,50 @@
       });
     }
 
-    function unique(values) {
-      return Array.from(new Set(values)).sort();
-    }
-
-    function normalizeRow(r) {
-      const city = r.city || r['城市'] || r['城市_1'] || '';
-      return { ...r, city };
-    }
-
     function inRange(month) {
       return month >= '2018-03' && month <= '2025-12';
     }
 
-    function buildSeries(rows) {
-      const keys = Object.keys(rows[0] || {}).filter(k => !['month','table','city','城市','城市_1','城市_2'].includes(k));
-      const labels = unique(rows.map(r => r.month)).sort();
-      const datasets = keys.map((k, idx) => ({
-        label: k,
-        data: labels.map(m => {
-          const row = rows.find(r => r.month === m);
-          const v = row ? row[k] : '';
-          return v === '' ? null : Number(v);
-        }),
-        borderWidth: 2,
-        tension: 0.2,
-      }));
+    function buildSeries(rows, mode) {
+      const labels = Array.from(new Set(rows.map(r => r.month))).sort();
+      const groupKey = mode === '整体' ? 'metric' : 'segment';
+      const groups = Array.from(new Set(rows.map(r => r[groupKey])));
+      const datasets = [];
+      groups.forEach(g => {
+        const gRows = rows.filter(r => r[groupKey] === g);
+        if (mode === '整体') {
+          datasets.push({
+            label: g,
+            data: labels.map(m => {
+              const row = gRows.find(r => r.month === m);
+              return row ? Number(row.value) : null;
+            }),
+            borderWidth: 2,
+            tension: 0.2,
+          });
+        } else {
+          // 面积段模式：每个面积段显示两条线（环比/同比）
+          ['环比','同比'].forEach(metric => {
+            const mRows = gRows.filter(r => r.metric === metric);
+            datasets.push({
+              label: `${g}-${metric}`,
+              data: labels.map(m => {
+                const row = mRows.find(r => r.month === m);
+                return row ? Number(row.value) : null;
+              }),
+              borderWidth: 2,
+              tension: 0.2,
+            });
+          });
+        }
+      });
       return { labels, datasets };
     }
 
     let chart;
-    function renderChart(rows) {
+    function renderChart(rows, mode) {
       const ctx = document.getElementById('chart').getContext('2d');
-      const { labels, datasets } = buildSeries(rows);
+      const { labels, datasets } = buildSeries(rows, mode);
       if (chart) chart.destroy();
       chart = new Chart(ctx, {
         type: 'line',
@@ -104,32 +115,26 @@
     }
 
     function applyFilter(data) {
-      const table = document.getElementById('tableSelect').value;
       const city = document.getElementById('cityInput').value.trim();
-      let rows = data.filter(d => d.table === table).map(normalizeRow);
-      rows = rows.filter(r => r.city && inRange(r.month));
+      const house = document.getElementById('houseSelect').value;
+      const mode = document.getElementById('segmentMode').value;
+      let rows = data.filter(r => inRange(r.month));
+      rows = rows.filter(r => r.house_type === house);
       if (city) rows = rows.filter(r => r.city.includes(city));
-      rows = rows.sort((a,b) => a.month.localeCompare(b.month));
-      renderChart(rows);
+      if (mode === '整体') rows = rows.filter(r => r.segment === '整体');
+      else rows = rows.filter(r => r.segment !== '整体');
+      renderChart(rows, mode);
     }
 
     loadData().then(data => {
-      const tableSelect = document.getElementById('tableSelect');
-      const tables = unique(data.map(d => d.table));
-      tables.forEach(t => {
-        const opt = document.createElement('option');
-        opt.value = t;
-        opt.textContent = tableLabels[t] || t;
-        tableSelect.appendChild(opt);
-      });
-
       document.getElementById('resetBtn').addEventListener('click', () => {
         document.getElementById('cityInput').value = '';
         applyFilter(data);
       });
 
-      document.getElementById('tableSelect').addEventListener('change', () => applyFilter(data));
       document.getElementById('cityInput').addEventListener('input', () => applyFilter(data));
+      document.getElementById('houseSelect').addEventListener('change', () => applyFilter(data));
+      document.getElementById('segmentMode').addEventListener('change', () => applyFilter(data));
 
       applyFilter(data);
     });
