@@ -37,10 +37,16 @@
         <option value="面积段">面积段</option>
       </select>
     </label>
+    <label>面积段
+      <select id="segmentSelect">
+        <option value="">全部</option>
+      </select>
+    </label>
     <button id="resetBtn">重置</button>
   </div>
 
   <canvas id="chart" height="120"></canvas>
+  <div class="muted">说明：同比=本月价格指数相对上年同月(上年同月=100)；环比=本月价格指数相对上月(上月=100)。</div>
   <div class="muted">显示范围：2018-03 至 2025-12</div>
 
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
@@ -118,23 +124,39 @@
       const city = document.getElementById('cityInput').value.trim();
       const house = document.getElementById('houseSelect').value;
       const mode = document.getElementById('segmentMode').value;
+      const seg = document.getElementById('segmentSelect').value;
       let rows = data.filter(r => inRange(r.month));
       rows = rows.filter(r => r.house_type === house);
       if (city) rows = rows.filter(r => r.city.includes(city));
-      if (mode === '整体') rows = rows.filter(r => r.segment === '整体');
-      else rows = rows.filter(r => r.segment !== '整体');
+      if (mode === '整体') {
+        rows = rows.filter(r => r.segment === '整体');
+      } else {
+        rows = rows.filter(r => r.segment !== '整体');
+        if (seg) rows = rows.filter(r => r.segment === seg);
+      }
       renderChart(rows, mode);
     }
 
     loadData().then(data => {
+      const segmentSelect = document.getElementById('segmentSelect');
+      const segments = Array.from(new Set(data.map(r => r.segment))).filter(s => s && s !== '整体');
+      segments.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s;
+        opt.textContent = s;
+        segmentSelect.appendChild(opt);
+      });
+
       document.getElementById('resetBtn').addEventListener('click', () => {
         document.getElementById('cityInput').value = '';
+        document.getElementById('segmentSelect').value = '';
         applyFilter(data);
       });
 
       document.getElementById('cityInput').addEventListener('input', () => applyFilter(data));
       document.getElementById('houseSelect').addEventListener('change', () => applyFilter(data));
       document.getElementById('segmentMode').addEventListener('change', () => applyFilter(data));
+      document.getElementById('segmentSelect').addEventListener('change', () => applyFilter(data));
 
       applyFilter(data);
     });
