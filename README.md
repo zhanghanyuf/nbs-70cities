@@ -25,3 +25,7 @@ python3 scripts/build_web.py
 
 ## GitHub Pages
 将 Pages Source 设置为 `docs/` 即可访问网页。
+
+## License & Attribution
+Licensed under **CC BY 4.0**. Please include attribution when using or adapting this project.
+See [CITATION.md](./CITATION.md).
