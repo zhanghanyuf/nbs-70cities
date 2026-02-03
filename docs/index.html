@@ -37,7 +37,7 @@
         <option value="面积段">面积段</option>
       </select>
     </label>
-    <label>面积段
+    <label id="segmentWrap">面积段
       <select id="segmentSelect">
         <option value="">全部</option>
       </select>
@@ -139,13 +139,24 @@
 
     loadData().then(data => {
       const segmentSelect = document.getElementById('segmentSelect');
+      const segmentWrap = document.getElementById('segmentWrap');
       const segments = Array.from(new Set(data.map(r => r.segment))).filter(s => s && s !== '整体');
+      const labelMap = {
+        '90m2及以下': '90㎡以下',
+        '90-144m2': '90-144㎡',
+        '144m2以上': '144㎡以上',
+      };
       segments.forEach(s => {
         const opt = document.createElement('option');
         opt.value = s;
-        opt.textContent = s;
+        opt.textContent = labelMap[s] || s;
         segmentSelect.appendChild(opt);
       });
+
+      function toggleSegment() {
+        const mode = document.getElementById('segmentMode').value;
+        segmentWrap.style.display = (mode === '面积段') ? 'inline-block' : 'none';
+      }
 
       document.getElementById('resetBtn').addEventListener('click', () => {
         document.getElementById('cityInput').value = '';
@@ -155,9 +166,13 @@
 
       document.getElementById('cityInput').addEventListener('input', () => applyFilter(data));
       document.getElementById('houseSelect').addEventListener('change', () => applyFilter(data));
-      document.getElementById('segmentMode').addEventListener('change', () => applyFilter(data));
+      document.getElementById('segmentMode').addEventListener('change', () => {
+        toggleSegment();
+        applyFilter(data);
+      });
       document.getElementById('segmentSelect').addEventListener('change', () => applyFilter(data));
 
+      toggleSegment();
       applyFilter(data);
     });
   </script>
